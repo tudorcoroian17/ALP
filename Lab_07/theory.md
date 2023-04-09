@@ -33,12 +33,12 @@ far | The destination address (*label*) is **in a different code segment**.
 `JMP SHORT BETA` <br> `;instructions` <br> `BETA:` | short | after `JMP` | It is encoded as a **short** jump. (i.e. the *target address* is encoded on 1 byte)
 `GAMA:` <br> `;instructions` <br> `JMP GAMA`  | far | before `JMP` | It is encoded as a **far** jump. (i.e. the *target address* is encoded on 4 bytes [seg:offset])
 `JMP GAMA` <br> `;instructions` <br> `GAMA:` | far | after `JMP` | It is encoded as a **near** jump. (i.e. the *target address* is encoded on 2 bytes)
-`JMP FAR PTR BETA` <br> `;instructions` <br> `GAMA:` | far | after `JMP` | It is encoded as a **far** jump. (i.e. the *target address* is encoded on 4 bytes [seg:offset])
+`JMP FAR PTR GAMA` <br> `;instructions` <br> `GAMA:` | far | after `JMP` | It is encoded as a **far** jump. (i.e. the *target address* is encoded on 4 bytes [seg:offset])
 `JMP VAR` | far (indirect) | variable (word or dword) defined after `JMP` | It is encoded as a **near** jump. (i.e. the *target address* is encoded on 2 bytes)
 `JMP DWORD PTR VAR` | far (indirect) | variable (word or dword) defined after `JMP` | It is encoded as a **far** jump. (i.e. the *target address* is encoded on 4 bytes [seg:offset])
 
 > **Warning** 
-> Using the SHORT operator in an improper situation will generate an assembly error. Use it **ONLY** if the tartge address is within 129 bytes after the `JMP` call.
+> Using the SHORT operator in an improper situation will generate an assembly error. Use it **ONLY** if the target address is within 129 bytes after the `JMP` call.
 
 ## The conditional jumps
 Conditional jumps consist of a process in two steps. 
@@ -48,7 +48,7 @@ Conditional jumps consist of a process in two steps.
 > **Note**
 > All conditional jumps are of short type.
 
-If the target of the conditional jump is out of range, it must be replaced through a conditional jump with the reverse condition (e.g. `JE` is replaced by `JNE`) followed by an unconditional jump.
+If the target of the conditional jump is out of range, it must be replaced with a conditional jump with the reverse condition (e.g. `JE` is replaced by `JNE`) followed by an unconditional jump.
 
 ### Jump conditions
 | Jump condition | Compare with sign | Flags | Compare wihtout sign | Flags
@@ -61,7 +61,7 @@ Greater than or equal to | `JGE` or `JNL` | `SF = OF` | `JAE` or `JNB` | `CF = 0
 Less than or equal to | `JLE` or `JNG` | `ZF = 1` and `SF = OF` | `JBE` or `JNA` | `ZF = 1` or `CF = 1`|
 
 > **Note**
-> Conditional jumps can also be performed testing particular flags (`JO`, `JNO` a.s.o.) or by testing the `CX` register (`JCXZ` - jump if contet of `CX` is 0).
+> Conditional jumps can also be performed testing particular flags (`JO`, `JNO` a.s.o.) or by testing the `CX` register (`JCXZ` - jump if content of `CX` is 0).
 
 ## The `LOOP` instruction
 All the loop instructions decrement the content of the `CX` register and if
