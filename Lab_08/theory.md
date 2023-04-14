@@ -14,7 +14,7 @@ A macro is a pseudo-operation that allow the reuse of previously written code. T
         font-weight: bold:
     }
 </style>
-<p class = "small title"> Differences </p>
+<p class = "small_title"> Differences </p>
 
 
 Macros | Procedures
