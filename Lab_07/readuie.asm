@@ -53,7 +53,7 @@ first:              ; Shift digits until first nibblet of BX is not 0
 head:
     MOV DX, CX
     MOV CX, 4
-    SUB CX, DX      ; Count how many digits to print
+    SUB CX, DX      ; Count how many digits to print (4 - digits shifted)
 prnt:
     CALL PRINT_DIG
     SHL BX, 4

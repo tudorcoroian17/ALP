@@ -40,6 +40,7 @@ exit:
     RET
 UPPER   ENDP
 
+; Read a string from keyboard input
 READS   PROC NEAR
     MOV AH, 0AH
     LEA DX, read_buff

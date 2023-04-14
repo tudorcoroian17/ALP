@@ -1,4 +1,4 @@
-# Theoretical considerations <!-- omit in toc -->
+# Flow control instructions <!-- omit in toc -->
 
 Jumping is the most direct method of modifying the instruction flow. The jump instructions change the value of the `IP` register and sometimes of the `CS` register (*for intersegment jump*), so the `IP` and `CS` registers will be loaded with the address of the target.
 

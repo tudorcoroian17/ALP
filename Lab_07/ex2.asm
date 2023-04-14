@@ -36,6 +36,7 @@ exit:
     RET
 UPPER   ENDP
 
+; Print a string to the console
 PRINTS  PROC NEAR
     MOV AH, 09H
     LEA DX, string
