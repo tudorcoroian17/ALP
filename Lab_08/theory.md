@@ -37,8 +37,8 @@ Below is the sequence of steps used to assemble and link a macro library to the 
 ```mermaid
 flowchart LR
     A[maclib.asm] -- tasm --> B[maclib.obj]
-    C[main.asm] -- tasm --> C[main.obj]
-    B & C -- tlink --> D [main.exe]
+    C[main.asm] -- tasm --> D[main.obj]
+    B & D -- tlink --> E[main.exe]
 ```
 
 ## Using `TLIB` Librarian
