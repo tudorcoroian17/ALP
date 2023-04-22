@@ -37,11 +37,11 @@ Below is the sequence of steps used to assemble and link a macro library to the 
 ```mermaid
 stateDiagram
     direction LR
-    [*] --> `tasm maclib.asm`
-    `tasm maclib.asm` --> `tasm main.asm`
-    `tasm main.asm` --> `tlink main.obj maclib.obj`
-    `tlink main.obj maclib.obj` --> `td main.exe`
-    `td main.exe` --> [*]
+    [*] --> tasm maclib.asm
+    tasm maclib.asm --> tasm main.asm
+    tasm main.asm --> tlink main.obj maclib.obj
+    tlink main.obj maclib.obj --> td main.exe
+    td main.exe --> [*]
 ```
 
 ## Using `TLIB` Librarian
