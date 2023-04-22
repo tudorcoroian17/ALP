@@ -4,6 +4,7 @@
 - [Working with macros](#working-with-macros)
 - [Macro library](#macro-library)
 - [Procedure library](#procedure-library)
+  - [More options for `TLIB`](#more-options-for-tlib)
 
 ## Working with macros
 A macro is a pseudo-operation that allow the reuse of previously written code. They are similar to procedures, but there are also some differences.
@@ -53,19 +54,11 @@ A procedure library start as multiple procedures defined in a code segment. This
 Below is the sequence of steps to create, assemble and link a procedure library to the main file.
 
 ```mermaid
-stateDiagram-v2
-    direction LR
-    A: proclib.asm
-    B: proclib.obj
-    C: mylib.lib
-    D: main.asm
-    E: main.obj
-    F: main.exe
-    A --> B: tasm 
-    B --> C: tlib
-    D --> E: tasm 
-    E --> F: tlink
-    C --> F: tlink   
+flowchart LR
+    A[proclib.asm] -- tasm --> B[proclib.obj]
+    B -- tlib --> C[mylib.lib]
+    D[main.asm] -- tasm --> E[main.obj]
+    C & E -- tlink --> F[main.exe] 
 ```
 ```
 C:\TASM>tasm /zi proclib.asm
@@ -74,3 +67,14 @@ C:\TASM>tasm /zi main.asm
 C:\TASM>tlink /v main.obj mylib.lib
 C:\TASM>td main.exe
 ```
+
+### More options for `TLIB`
+The instruction `tlib` is called as follows:
+```
+tlib [library_name] {+,-,*}[module_name]
+```
+where:
+- `+` is used to add a module (`.obj` file) to the library
+- `-` is used to remove a module from the library
+- `*` is used to extract a module from the library
+
