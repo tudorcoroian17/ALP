@@ -31,7 +31,8 @@ ENDM
 The **local label list** is optional. Macros that use labels inside them, must declare those labels in this list. These labels are then expanded with different names each time the macro is called.
 
 ## Macro library
-A macro library is nothing more than multiple macros defined in the same soure (`.asm`) file. This file is the included in the main one with the `INCLUDE filename.asm` instruction.
+A macro library is nothing more than multiple macros defined in the same soure (`.asm`) file. This file is the included in the main one with the `INCLUDE filename.asm` instruction. This instruction can be seen in use here: 
+https://github.com/tudorcoroian17/ALP/blob/f01af4620e4d4c841b721c610b26361cb12dd586/Lab_08/eg1.asm#L1
 
 Below is the sequence of steps used to assemble and link a macro library to the main file. (`maclib.asm` is the assembly file that contains the macro definitions and `main.asm` is the main file that calls on those macros.)
 
