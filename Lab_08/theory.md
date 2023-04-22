@@ -35,13 +35,13 @@ A macro library is nothing more than multiple macros defined in the same soure (
 Below is the sequence of steps used to assemble and link a macro library to the main file. (`maclib.asm` is the assembly file that contains the macro definitions and `main.asm` is the main file that calls on those macros.)
 
 ```mermaid
-stateDiagram
+flowchart
     direction LR
-    [*] --> tasm maclib.asm
-    tasm maclib.asm --> tasm main.asm
-    tasm main.asm --> tlink main.obj maclib.obj
-    tlink main.obj maclib.obj --> td main.exe
-    td main.exe --> [*]
+    [*] --> A([tasm maclib.asm])
+    A --> B([tasm main.asm])
+    B --> C([tlink main.obj maclib.obj])
+    C --> D([td main.exe])
+    D --> [*]
 ```
 
 ## Using `TLIB` Librarian
