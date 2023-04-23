@@ -23,7 +23,6 @@ READ_CHAR       MACRO character
 
     POP AX
 ENDM
-END
 
 PREP_PRINT      MACRO buffer
 ; Prepare the string in buffer to be printed (add '$' at the end of the string)
@@ -31,10 +30,11 @@ PREP_PRINT      MACRO buffer
     PUSH SI
 
     MOV SI, 1
-    MOV SI, WORD PTR buffer[SI]   ; load in SI the size of the input string
+    MOV SI, WORD PTR buffer[SI] ; load in SI the size of the input string
     AND SI, 00FFH           
     ADD SI, 2                   ; get to the end of the string
-    MOV buffer[SI], '$'           ; add $ to the end
+    MOV buffer[SI], '$'         ; add $ to the end
 
     POP SI
 ENDM
+END
