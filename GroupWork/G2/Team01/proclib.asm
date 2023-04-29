@@ -1,0 +1,14 @@
+CODE SEGMENT PARA PUBLIC 'CODE'
+    PUBLIC  PRINT_STRING
+ASSUME CS:CODE
+
+PRINT_STRING    PROC NEAR
+; Print a string with its effective address loaded in DX
+    MOV AH, 09H
+    ADD DX, 2
+    INT 21H  
+    RET
+ENDP
+
+CODE ENDS
+END
