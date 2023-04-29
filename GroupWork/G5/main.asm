@@ -24,12 +24,14 @@ START ENDP
 
 READ_NBS    PROC    NEAR
 ; Read the first number from the keyboard
+XOR BX, BX
+XOR DX, DX
 bgn1:
     CALL READ_BYTE
     CMP AL, '+'
     JE sign1
     CMP AL, '-'
-    JE digit1
+    JNE digit1
 sign1:
     MOV op, AL
     JMP fin1
@@ -50,6 +52,8 @@ ENDP
 
 READ_NB2    PROC    NEAR
 ; Read the second number from the keyboard
+XOR BX, BX
+XOR DX, DX
 bgn2:
     CALL READ_BYTE
     CMP AL, 0DH
