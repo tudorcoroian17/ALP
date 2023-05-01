@@ -22,7 +22,7 @@ Calling a procedure of type `NEAR` implies:
 
 For procedures writen in different file modules (`.asm` files), the fact that they belong to the same code segment in marked by **the name of the code segment**. [See example below]
 
-https://github.com/tudorcoroian17/ALP/blob/83cefbd5a1b9f241d3feb881c264fd2c581909da/Lab_08/proclib.asm#L1-L19 | https://github.com/tudorcoroian17/ALP/blob/83cefbd5a1b9f241d3feb881c264fd2c581909da/Lab_08/proclib.asm#L1-L19
+https://github.com/tudorcoroian17/ALP/blob/83cefbd5a1b9f241d3feb881c264fd2c581909da/Lab_08/proclib.asm#L1-L19             | https://github.com/tudorcoroian17/ALP/blob/83cefbd5a1b9f241d3feb881c264fd2c581909da/Lab_08/proclib.asm#L1-L19            
 :-- | :--
 
 
