@@ -1,0 +1,19 @@
+_CODE SEGMENT PARA PUBLIC 'CODE'
+    PUBLIC PROC1
+    PUBLIC PROC2
+ASSUME CS:_CODE
+
+PROC1    PROC    FAR
+; Add 16 to the value of AX
+    ADD AX, 10H
+    RET
+PROC1    ENDP
+
+PROC2   PROC    FAR
+; Subtract 16 from the value of AX
+    SUB AX, 10H
+    RET
+PROC2   ENDP
+
+_CODE ENDS
+END
