@@ -21,7 +21,7 @@ Calling a procedure of type `NEAR` implies:
 > **Note**
 > If `CS` is not modified, this implies that both the *calling* procedure and the *called* procedure are **in the same** code segment.
 
-For procedures writen in different file modules (`.asm` files), the fact that they belong to the same code segment in marked by **the name of the code segment**. [See example below]
+For procedures writen in different file modules (`.asm` files), the fact that they belong to the same code segment is marked by **the name of the code segment**. [See example below]
 
 <table>
 <tr>
@@ -65,7 +65,35 @@ Calling a procedure of type `FAR` implies:
 > **Note**
 > If `CS` is modified, this implies that both the *calling* procedure and the *called* procedure are **in different** code segments.
 
-https://github.com/tudorcoroian17/ALP/blob/036919e535f640ff06bed96c1a4d598705a93be6/Lab_09/farproc.asm#L1-L19 | https://github.com/tudorcoroian17/ALP/blob/036919e535f640ff06bed96c1a4d598705a93be6/Lab_09/main.asm#L5-L9
+For procedures writen in different file modules (`.asm` files), the fact that they belong to the different code segments is marked by **different names of the code segments**. [See example below]
+
+<table>
+<tr>
+<th align="center">
+<img width="500" height="1">
+<p align="center">
+Procedure definition
+</p>
+</th>
+<th align="center">
+<img width="500" height="1">
+<p align="center">
+Procedure call
+</p>
+</th>
+</tr>
+<tr>
+<td>
+https://github.com/tudorcoroian17/ALP/blob/036919e535f640ff06bed96c1a4d598705a93be6/Lab_09/farproc.asm#L1-L19
+</td>
+<td>
+https://github.com/tudorcoroian17/ALP/blob/036919e535f640ff06bed96c1a4d598705a93be6/Lab_09/main.asm#L5-L9
+</td>
+</tr>
+</table>
+
+> **Note**
+> In the examples above, the code segment that contains the definition of the procedure is named `_CODE` and the code segment that calls the procedure is named `CODE`.
 
 For `FAR` type procedures, in case of multiple modules, the `EXTRN` directive is used **outside**  of the code segment in which the call is made, but in the file that calls the procedures. [See lines 6 and 7 in the code above, in `main.asm`]
 
