@@ -100,11 +100,29 @@ For `FAR` type procedures, in case of multiple modules, the `EXTRN` directive is
 The `PUBLIC` directive is used **inside** the code segment in which the procedure is defined, in the file that defines the procedures. [See lines 2 and 3 in the code above, in `farproc.asm`]
 
 ## Passing parameters to procedures
+There are three known types of parameter transfers to procedures in assembly language: through registers, through pointers and data structures (memory) and through the stack.
 
 ### Registers
+This method is straight forward and implies loading the registers with the values that are going to be used in the procedure.
+
+In order to keep the previous values of the registers, they are stored on the stack before the procedure call and are loaded back from the stack after the procedure call.
 
 ### Memory
+In this transfer type, a data zone is prepared and the address of this data zone is transmitted to the procedure. To ease access to the parameters it is recommended to define a structure, which describes the structure of the parameters. [See code below]
+
+https://github.com/tudorcoroian17/ALP/blob/bfb14ff93e1439e92e1be5ded1ca7b9dedd9c389/Lab_09/mem.asm#L1-L28
 
 ### Stack
+In order to use the stack as means to pass parameters to a procedure, the following steps must be performed:
+
+- when entering the procedure:
+  1. `BP` register is saved on the stack
+  2. `SP` is copied to `BP`
+  3. the registers used by the procedure are saved on the stack
+  4. the parameters are accessed through **indirect addressing** using the `BP` register
+- when exiting the procedure:
+  1. the saved registers are restored
+  2. `BP` register is restored
+  3. `RET` instruction is called
 
 
