@@ -26,13 +26,13 @@ For procedures writen in different file modules (`.asm` files), the fact that th
 <table>
 <tr>
 <th align="center">
-<img width="441" height="1">
+<img width="500" height="1">
 <p align="center">
 Procedure definition
 </p>
 </th>
 <th align="center">
-<img width="441" height="1">
+<img width="500" height="1">
 <p align="center">
 Procedure call
 </p>
