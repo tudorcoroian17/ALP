@@ -50,11 +50,10 @@ BASE10 MACRO value
 ; store the digits of the number of the stack.
 ; Additionally, count the number of digits stored on the stack
 ; and load this value in CX
-LOCAL @divide
 MOV AX, WORD PTR value
 MOV BL, 0AH
 MOV CX, 0
-@divide:
+divide:
     INC CX      ; Increment the nb of digits stored on the stack
     XOR AH, AH
     DIV BL      ; Divide AX to BL
@@ -62,7 +61,7 @@ MOV CX, 0
     XOR DH, DH  
     PUSH DX     ; Put rest (digit) on the stack
     CMP AL, 0   ; Check if quotient != 0
-    JNE @divide
+    JNE divide
 ENDM
 
 CODE SEGMENT PARA PUBLIC 'CODE'
