@@ -1,6 +1,6 @@
 {
     "masmtasm.ASM.emulator": "dosbox",
-    "masmtasm.ASM.mode": "workspace",
+    "masmtasm.ASM.mode": "single file",
     "masmtasm.ASM.actions": {
         "TASM": {
             "baseBundle": "<built-in>/TASM.jsdos",
