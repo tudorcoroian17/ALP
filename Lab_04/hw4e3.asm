@@ -1,0 +1,31 @@
+DATA SEGMENT PARA PUBLIC 'DATA'
+    VEC     DB      1, 2, 3, 4
+    LEN     DB      $-VEC
+    SUM     DW      0 
+DATA ENDS
+
+CODE SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:CODE, DS:DATA
+START PROC FAR
+PUSH DS
+XOR AX, AX
+MOV DS, AX
+PUSH AX
+MOV AX, DATA
+MOV DS, AX
+; your code starts here
+    MOV CX, WORD PTR LEN
+    MOV AX, 0
+    MOV SI, 0
+ITER:
+    ADD AL, VEC[SI]
+    INC SI
+    LOOP ITER
+
+    MOV SUM, AX
+; your code ends here
+RET
+START ENDP
+
+CODE ENDS
+END START
