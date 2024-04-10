@@ -1,0 +1,35 @@
+DATA SEGMENT PARA PUBLIC 'DATA'
+    VEC     DB  8, 12, 9, 0, 11, 7, 29, 34, 2
+    ; VEC[0] -> holds the length of the vector
+    ; VEC[1] - VEC[8] -> the elements of the vector
+DATA ENDS
+
+CODE SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:CODE, DS:DATA
+START PROC FAR
+PUSH DS
+XOR AX, AX
+MOV DS, AX
+PUSH AX
+MOV AX, DATA
+MOV DS, AX
+; your code starts here
+PUSH OFFSET VEC
+CALL SORT_DESC
+ADD SP, 2
+; your code ends here
+RET
+START ENDP
+CODE ENDS
+
+CODE2 SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:CODE2
+
+; Procedure definition
+SORT_DESC PROC FAR
+
+RET
+SORT_DESC ENDP
+
+CODE2 ENDS
+END START
