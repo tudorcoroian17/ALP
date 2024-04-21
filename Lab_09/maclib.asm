@@ -1,0 +1,11 @@
+PRINT_MSG MACRO MSG_PTR
+    PUSH AX
+    PUSH DX
+
+    MOV AH, 09H
+    MOV DX, MSG_PTR
+    INT 21H
+
+    POP DX
+    POP AX
+ENDM
