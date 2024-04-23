@@ -1,21 +1,47 @@
+// {
+//     "masmtasm.ASM.emulator": "dosbox",
+//     "masmtasm.ASM.mode": "single file",
+//     "masmtasm.ASM.actions": {
+//         "TASM": {
+//             "baseBundle": "<built-in>/TASM.jsdos",
+//             "before": [
+//                 "set PATH=C:\\TASM",
+//             ],
+//             "run": [
+//                 "TASM /m2 ${file}",
+//                 "TLINK ${filename}",
+//                 ">${filename}"
+//             ],
+//             "debug": [
+//                 "TASM /m2 /zi ${file} ${filename}.obj",
+//                 "TLINK /v/3 ${filename}.obj",
+//                 "TD ${filename}.exe"
+//             ]
+//         }
+//     },
+//     "masmtasm.ASM.assembler": "TASM"
+// }
 {
     "masmtasm.ASM.emulator": "dosbox",
-    "masmtasm.ASM.mode": "single file",
+    "masmtasm.ASM.mode": "workspace",
     "masmtasm.ASM.actions": {
         "TASM": {
             "baseBundle": "<built-in>/TASM.jsdos",
             "before": [
                 "set PATH=C:\\TASM",
+                "cd Lab_09",
             ],
             "run": [
-                "TASM /m2 ${file}",
-                "TLINK ${filename}",
-                ">${filename}"
+                "TASM /zi /la lw9e2.asm",
+                "TASM /zi /la proclib.asm",
+                "TLINK /v/3 lw9e2.obj proclib.obj",
+                ">lw9e2.exe"
             ],
             "debug": [
-                "TASM /m2 /zi ${file} ${filename}.obj",
-                "TLINK /v/3 ${filename}.obj",
-                "TD ${filename}.exe"
+                "TASM /zi /la lw9e2.asm",
+                "TASM /zi /la proclib.asm",
+                "TLINK /v/3 lw9e2.obj proclib.obj",
+                "TD lw9e2.exe"
             ]
         }
     },
