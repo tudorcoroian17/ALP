@@ -1,11 +1,9 @@
-PRINT_MSG MACRO MSG_PTR
-    PUSH AX
-    PUSH DX
+READCHAR MACRO DST
+    ; This is a macro that reads a character
 
-    MOV AH, 09H
-    MOV DX, MSG_PTR
-    INT 21H
+ENDM
 
-    POP DX
-    POP AX
+PRINTCHAR MACRO CHAR
+    ; This is a macro that prints a character
+
 ENDM
