@@ -32,14 +32,14 @@
                 "cd Lab_09",
             ],
             "run": [
-                "TASM /zi /la lw9e2.asm",
-                "TASM /zi /la proclib.asm",
+                "TASM /zi /m2 /la lw9e2.asm",
+                "TASM /zi /m2 /la proclib.asm",
                 "TLINK /v/3 lw9e2.obj proclib.obj",
                 ">lw9e2.exe"
             ],
             "debug": [
-                "TASM /zi /la lw9e2.asm",
-                "TASM /zi /la proclib.asm",
+                "TASM /zi /m2 /la lw9e2.asm",
+                "TASM /zi /m2 /la proclib.asm",
                 "TLINK /v/3 lw9e2.obj proclib.obj",
                 "TD lw9e2.exe"
             ]
