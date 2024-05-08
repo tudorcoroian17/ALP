@@ -29,19 +29,19 @@
             "baseBundle": "<built-in>/TASM.jsdos",
             "before": [
                 "set PATH=C:\\TASM",
-                "cd Lab_09",
+                "cd Lab_10",
             ],
             "run": [
-                "TASM /zi /m2 /la lw9e2.asm",
+                "TASM /zi /m2 /la fpu.asm",
                 "TASM /zi /m2 /la proclib.asm",
-                "TLINK /v/3 lw9e2.obj proclib.obj",
-                ">lw9e2.exe"
+                "TLINK /v/3 fpu.obj proclib.obj",
+                ">fpu.exe"
             ],
             "debug": [
-                "TASM /zi /m2 /la lw9e2.asm",
+                "TASM /zi /m2 /la fpu.asm",
                 "TASM /zi /m2 /la proclib.asm",
-                "TLINK /v/3 lw9e2.obj proclib.obj",
-                "TD lw9e2.exe"
+                "TLINK /v/3 fpu.obj proclib.obj",
+                "TD fpu.exe"
             ]
         }
     },
