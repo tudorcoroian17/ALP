@@ -78,6 +78,11 @@ ASSUME CS:CODE3
 MODIFY_NB PROC FAR
     ; Write a procedure that adds 12H to a number
     ; with the address sent via the stack
+    MOV BP, SP
+    MOV SI, [BP + 4]
+    MOV AX, [SI]
+    ADD AX, 12H
+    MOV [SI], AX
 RET 2
 MODIFY_NB ENDP
 
