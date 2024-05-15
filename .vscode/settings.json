@@ -32,16 +32,16 @@
                 "cd Lab_10",
             ],
             "run": [
-                "TASM /zi /m2 /la fpu.asm",
+                "TASM /zi /m2 /la hw10e1.asm",
                 "TASM /zi /m2 /la proclib.asm",
-                "TLINK /v/3 fpu.obj proclib.obj",
-                ">fpu.exe"
+                "TLINK /v/3 hw10e1.obj proclib.obj",
+                ">hw10e1.exe"
             ],
             "debug": [
-                "TASM /zi /m2 /la fpu.asm",
+                "TASM /zi /m2 /la hw10e1.asm",
                 "TASM /zi /m2 /la proclib.asm",
-                "TLINK /v/3 fpu.obj proclib.obj",
-                "TD fpu.exe"
+                "TLINK /v/3 hw10e1.obj proclib.obj",
+                "TD hw10e1.exe"
             ]
         }
     },
