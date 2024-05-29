@@ -3,7 +3,7 @@
 Given **a string** (*STRINGY*) of at most 63 characters, all of them lower case letters of the English alphabet (*a-z*) or *spaces*, **a byte-sized unsigned integer**, which represents a position in the string (*4 < position < length(string) / 3*), and **a symbol**, write a program in *assembly* code that modifies the string as follows:
 
 - each i-th character of the string will be replaced with the symbol, namely, when *i % pos = 0*
-- each lower case letter around the i-th character will be replaced with the upper case letter, namely, when *i % pos = 4* and *i % pos = 1*
+- each lower case letter around the i-th character will be replaced with the upper case letter, namely, when *i % pos = pos - 1* and *i % pos = 1*
 
 Spaces will be ignored by this rule, and they will remain spaces after the modification.
 
