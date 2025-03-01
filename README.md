@@ -4,6 +4,10 @@ Teaching materials for ALP at UTCN (1st year- 2nd semester)
 # Tudorials
 You'll find a list of "Tudorials" below, aimed to help you install, setup and use the tools needed for this laboratory.
 
+[Install Visual Studio Code](#install-visual-studio-code)
+[Setup your working directory](#setup-your-working-directory)
+[Install VSCode extensions](#install-vscode-extensions)
+
 ## Install Visual Studio Code
 In order to install VSCode on your local machine, follow the steps below.
 
@@ -92,7 +96,7 @@ If you've completed all steps correctly, the structure of your workspace should 
 
 Congrat! You have set up your workspace successfully!
 
-## Install the `TASM/MASM` VSCode extension
+## Install VSCode extensions
 The `TAMS/MASM` VSCode extension is the one that emulates the **TurboDebuger** from within Visual Studio Code. In order to install it, follow the steps below.
 
 1. Open **VSCode** in the same manner as you opened it for the **Setup your working directory** Tudorial.
