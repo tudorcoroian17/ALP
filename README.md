@@ -1,12 +1,10 @@
-# ALP
-Teaching materials for ALP at UTCN (1st year- 2nd semester)
-
 # Tudorials
 You'll find a list of "Tudorials" below, aimed to help you install, setup and use the tools needed for this laboratory.
 
-[Install Visual Studio Code](#install-visual-studio-code)
-[Setup your working directory](#setup-your-working-directory)
-[Install VSCode extensions](#install-vscode-extensions)
+- [Tudorials](#tudorials)
+  - [Install Visual Studio Code](#install-visual-studio-code)
+  - [Setup your working directory](#setup-your-working-directory)
+  - [Install VSCode extensions](#install-vscode-extensions)
 
 ## Install Visual Studio Code
 In order to install VSCode on your local machine, follow the steps below.
