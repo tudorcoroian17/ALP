@@ -1,6 +1,10 @@
 {
     "masmtasm.ASM.emulator": "dosbox",
     "masmtasm.ASM.mode": "single file",
+    "masmtasm.dosbox.config": {
+        "sdl.fullscreen": "true",
+        "sdl.output": "opengl"
+    },
     "masmtasm.ASM.actions": {
         "TASM": {
             "baseBundle": "<built-in>/TASM.jsdos",
