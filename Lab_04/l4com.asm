@@ -1,6 +1,7 @@
 CODE SEGMENT PARA PUBLIC 'CODE'
     ASSUME CS:CODE, DS:CODE
-
+    ORG 100H
+    
 START: JMP ENTRY
     VEC     DB      1, 2, 3, 4
     LEN     DB      $-VEC
