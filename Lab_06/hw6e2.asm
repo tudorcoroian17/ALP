@@ -1,8 +1,14 @@
 DATA SEGMENT PARA PUBLIC 'DATA'
-    TTABLE   DB  '0123456789ABCDEF'
-    NUMBER  DD  12AB34CDH
-    NB_STR  DB  8 DUP (0) 
+    ORG     02ACH
+    VAR1    DW  4567H
+    VAR2    DD  ?
 DATA ENDS
+
+DATA2 SEGMENT PARA PUBLIC 'DATA'
+    ORG     0A01H
+    VAR3    DW  ?
+    VAR4    DD  1200AB00H
+DATA2 ENDS
 
 CODE SEGMENT PARA PUBLIC 'CODE'
 ASSUME CS:CODE, DS:DATA
@@ -14,52 +20,6 @@ PUSH AX
 MOV AX, DATA
 MOV DS, AX
 ; your code starts here
-
-; initialize values
-MOV DI, 3   ; DI = 0003 because we need to start from NUMBER[3] to get the first byte
-MOV SI, 0
-MOV CX, 4   ; CX = 0004 because the number has 4 bytes
-
-lbl:
-    ; isolate byte of the number
-    MOV DL, BYTE PTR NUMBER[DI]
-
-    ; isolate first digit of the byte
-    SHR DX, 4
-    AND DL, 0FH
-
-    ; translate digit to ASCII character
-    MOV AL, DL
-    MOV BX, OFFSET TTABLE
-    XLAT TTABLE
-
-    ; place digit in the string variable
-    MOV NB_STR[SI], AL
-
-    ; go to next place in the string variable
-    INC SI
-
-    ; isolate the same byte of the number
-    MOV DL, BYTE PTR NUMBER[DI]
-
-    ; isolate second digit of the byte
-    AND DL, 0FH
-
-    ; translate digit to ASCII character
-    MOV AL, DL
-    MOV BX, OFFSET TTABLE
-    XLAT TTABLE
-
-    ; place digit in the string variable
-    MOV NB_STR[SI], AL
-
-    ; go to next place in the string variable
-    INC SI
-
-    ; go to next byte in number variable
-    DEC DI
-
-LOOP lbl  
 
 ; your code ends here
 RET
