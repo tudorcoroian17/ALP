@@ -54,7 +54,9 @@ DEC_STR_TO_NB PROC NEAR
 
         INC DI                  ; Move to the next digit
     LOOP parse
-RET
+RET 4                           ; RET 4 will add 4 bytes to SP upon return to the main procedure
+                                ; in order to change the top of the stack to the value it had before
+                                ; pushing the parameters for the procedure on the stack
 DEC_STR_TO_NB ENDP
 
 CODE ENDS
