@@ -98,7 +98,7 @@ Now begin to extract the parameters from the stack. Keep in mind that since you 
 block-beta
     block
         columns 1
-        BP CS IP c["OFFSET NUM"] d["OFFSET LEN"] e["OFFSET VEC"]
+        BP IP CS c["OFFSET NUM"] d["OFFSET LEN"] e["OFFSET VEC"]
     end
 ```
 
