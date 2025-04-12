@@ -101,8 +101,13 @@ Now begin to extract the parameters from the stack. Keep in mind that since you 
 ```mermaid
 block-beta
     block
-        columns 1
-        BP IP CS c["OFFSET NUM"] d["OFFSET LEN"] e["OFFSET VEC"]
+        columns 2
+        BP arrow<["Top of the Stack"]>(left)
+        IP space
+        CS space
+        c["OFFSET NUM"] space
+        d["OFFSET LEN"] space
+        e["OFFSET VEC"] space
     end
 ```
 
