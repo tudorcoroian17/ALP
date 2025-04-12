@@ -44,6 +44,7 @@ block-beta
         columns 1
         BP IP c["OFFSET NUM"] d["OFFSET LEN"] e["OFFSET VEC"]
     end
+    arrow<["Top of the Stack"]>(left)
 ```
 
 The order in which we should extract the parameters is arbitrary, so let's start with the length of the vector. Since on the stack we find the offset (or relative address) of the length of the vector, extract this address in the `SI` register. Furthermore, since we know that this length will be used for the `LOOP` instruction, we should copy the value of `LEN` from the data segment into `CX`.
