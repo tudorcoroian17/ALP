@@ -36,6 +36,8 @@ https://github.com/tudorcoroian17/ALP/blob/ae6ff8885bb304503d27819b06bfd619b8350
 Now begin to extract the parameters from the stack. The order is arbitrary, so let's start with the length of the vector. Keep in mind that since you pushed `BP` on the stack, it now looks like below.
 ```mermaid
 block-beta
-    columns 1
-    ADR VEC, ADR LEN, ADR NUM, IP, BP
+    block
+        columns 1
+        BP IP c["OFFSET NUM"] d["OFFSET LEN"] e["OFFSET VEC"]
+    end
 ```
