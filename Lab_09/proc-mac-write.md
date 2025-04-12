@@ -8,12 +8,17 @@ In this Tudorial we'll cover the following topics:
   - [The complete solution](#the-complete-solution-1)
 - [Writing a `FAR` type procedure in another segment from the caller, but in the same file](#writing-a-far-type-procedure-in-another-segment-from-the-caller-but-in-the-same-file)
   - [The complete solution](#the-complete-solution-2)
+- [Writing a `NEAR` type procedure in the same segment, but in another file](#writing-a-near-type-procedure-in-the-same-segment-but-in-another-file)
+  - [The complete `main.asm` file](#the-complete-mainasm-file)
+  - [The complete `proclib.asm` file](#the-complete-proclibasm-file)
 
 
 Before starting with any topic, the current Tudorial makes the following assumptions:
 - parameters are passed via the stack to the procedures
 - the addresses of variables are passed as parameters (not the values)
 - for all procedures, it is assumed that the caller is the `START` procedure
+- when writing procedures in another file, the name of that file will be `proclib.asm`
+- when writing macros in another file, the name of that file will be `maclib.asm`
 
 All procedures will solve the following task:
 *Given the address of a vector of bytes, the address of it's length and the address of another byte sized number, write a procedure that adds the byte sized number to all odd elements of the vector.*
@@ -207,3 +212,37 @@ When the number is odd, we want to add `NUM` (whose value is now in `DL`) direct
 
 ### The complete solution
 https://github.com/tudorcoroian17/ALP/blob/92938a127023adbbac47f4486ec6c7ba4bda2599/resources/line-code/fpds.asm#L1-L64
+
+## Writing a `NEAR` type procedure in the same segment, but in another file
+Since the code is now in two separate files, `main.asm` will containt the `START` procedure and `proclib.asm` will contain the implementation of the `REPLACE_ODD` procedure.
+
+Copy the code from `template.asm` in the main file and define the data segment as described in the task.
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L1-L5
+
+It's important to know the order of the parameters sent via the stack. The task specifies that the address of the vector is sent first, then the length, and then the number. Push these values on the stack in the `START` procedure and then call `REPLACE_ODD`.
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L18-L25
+
+Even if `REPLACE_ODD` is a procedure defined in the same code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `NEAR` type procedure, found outside of the current file (`main.asm`). This specification should be made befor the `ASSUME` instruction, in the main file.
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L7-L11
+
+### The complete `main.asm` file
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L1-L28
+
+Now that the main file is complete, let's create the `proclib.asm` file. This file is going to have only one segment (the code segment). Start the segment definition with:
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L1
+add the `ASSUME` instruction
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L5
+and end it with:
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L40-L42
+
+Since both segments (the one in `main.asm` and the one in `proclib.asm`) have the same name `CODE`, they are treated as being the same segment.
+
+In order to make the procedure `REPLACE_ODD` visible to other files in the system, we must specify that it is a public procedure. This specification should be made before the `ASSUME` instruction.
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L1-L5
+
+The implementation of the `REPLACE_ODD` procedure is exactly the same as when we wrote it in the same segment and file (see Tudorial above). As such, the full body of the procedure is presented below.
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L7-L39
+
+### The complete `proclib.asm` file
+https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L1-L42
+
