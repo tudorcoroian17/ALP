@@ -27,10 +27,10 @@ Each message was encrypted according to this diagram.
 ```mermaid
 stateDiagram
     direction LR
-    ["Original Message"] --> [ENCODE_1]
+    [Original_Message] --> [ENCODE_1]
     [ENCODE_1] --> [ENCODE_2]
     [ENCODE_2] --> [ENCODE_3]
-    [ENCODE_3] --> ["Encrypted Message"]
+    [ENCODE_3] --> [Encrypted_Message]
 ```
 
 ### ENCODE_1
@@ -219,8 +219,8 @@ In order to not receive a penalty from the LWA, your team needs to implement thr
 ```mermaid
 stateDiagram
     direction LR
-    ["Encrypted Message"] --> [DECODE_3]
+    [Encrypted_Message] --> [DECODE_3]
     [DECODE_3] --> [DECODE_2]
     [DECODE_2] --> [DECODE_1]
-    [DECODE_1] --> ["Original Message"]
+    [DECODE_1] --> [Original_Message]
 ```
