@@ -1,5 +1,14 @@
 # Bounty Hunters - Secret Message
 
+- [Bounty Hunters - Secret Message](#bounty-hunters---secret-message)
+  - [Encrypted message](#encrypted-message)
+  - [Encryption steps](#encryption-steps)
+    - [ENCODE\_1](#encode_1)
+    - [ENCODE\_2](#encode_2)
+    - [ENCODE\_3](#encode_3)
+  - [The task](#the-task)
+
+
 The Local Wildlife Agency (LWA) got wind of your excesive hunting in the area. As such, they are ready to give you a penalty of 0.5 points to your capture this year. However, they agreed to let you attone for your mistakes. They encrypted three messages with three levels of encryption each (according to the diagram below). Your job is to decrypt the messages and follow the instructions written in them. If your team is the first one to succeed, each member will get a percentage of 1 point (depending on the contribution). Next teams that follow the instructions successfully will also get a bonus, but smaller than the team that followed the instructions before them.
 
 ## Encrypted message
@@ -18,10 +27,10 @@ Each message was encrypted according to this diagram.
 ```mermaid
 stateDiagram
     direction LR
-    [Original Message] --> [ENCODE_1]
+    ["Original Message"] --> [ENCODE_1]
     [ENCODE_1] --> [ENCODE_2]
     [ENCODE_2] --> [ENCODE_3]
-    [ENCODE_3] --> [Encrypted Message]
+    [ENCODE_3] --> ["Encrypted Message"]
 ```
 
 ### ENCODE_1
@@ -166,7 +175,7 @@ ENCODE_3 PROC NEAR
     MOV SI, [BP + 4]
     MOV AH, [SI]
     MOV AL, [SI + 1]
-    MOV SI, [BP + 6]
+    MOV SI, [BP + 6]~
     MOV BH, [SI]
     MOV BL, [SI + 1]
     MOV SI, [BP + 10]
@@ -201,4 +210,17 @@ ENCODE_3 PROC NEAR
 
     RET 8
 ENCODE_3 ENDP
+```
+
+## The task
+
+In order to not receive a penalty from the LWA, your team needs to implement three decoding procedures (`DECODE_1`, `DECODE_2`, and `DECODE_3`) that each decode their respective encodings. For example, `DECODE_1` will decode the message encoded by `ENCODE_1`. The diagram below explains how you should apply the decoding steps.
+
+```mermaid
+stateDiagram
+    direction LR
+    ["Encrypted Message"] --> [DECODE_3]
+    [DECODE_3] --> [DECODE_2]
+    [DECODE_2] --> [DECODE_1]
+    [DECODE_1] --> ["Original Message"]
 ```
