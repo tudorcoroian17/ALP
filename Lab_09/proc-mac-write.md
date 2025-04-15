@@ -280,7 +280,7 @@ It's important to know the order of the parameters sent via the stack. The task 
 https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/main.asm#L18-L25
 
 Even if `REPLACE_ODD` is a procedure defined in another code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `FAR` type procedure, found outside of the current file (`main.asm`). This is done with the help of the `EXTRN` instruction. Since `REPLACE_ODD` is a procedure of type far, the `EXTRN` instruction should be added outside the main code segment (ideally between the data segment and the code segment). The `EXTRN` instruction simply tells the assembler where it should look for the definition of the `REPLACE_ODD` symbol.
-https://github.com/tudorcoroian17/ALP/blob/a87f7173fb09175dbd994dc55336dcbe12a581be/resources/line-code/fpdsdf/main.asm#L6-L8
+https://github.com/tudorcoroian17/ALP/blob/a87f7173fb09175dbd994dc55336dcbe12a581be/resources/line-code/fpdsdf/main.asm#L5-L9
 
 ### The complete `main.asm` file
 https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/main.asm#L1-L28
