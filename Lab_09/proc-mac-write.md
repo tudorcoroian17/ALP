@@ -1,4 +1,4 @@
-# Procedures and Procedure Libaries <!-- omit in toc -->
+# Procedures and Procedure Libraries <!-- omit in toc -->
 
 In this Tudorial we'll cover the following topics:
 
