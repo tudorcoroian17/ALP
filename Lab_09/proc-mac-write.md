@@ -227,7 +227,7 @@ https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca
 It's important to know the order of the parameters sent via the stack. The task specifies that the address of the vector is sent first, then the length, and then the number. Push these values on the stack in the `START` procedure and then call `REPLACE_ODD`.
 https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L18-L25
 
-Even if `REPLACE_ODD` is a procedure defined in the same code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `NEAR` type procedure, found outside of the current file (`main.asm`). This specification should be made befor the `ASSUME` instruction, in the main file.
+Even if `REPLACE_ODD` is a procedure defined in the same code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `NEAR` type procedure, found outside of the current file (`main.asm`). This is done with the help of the `EXTRN` instruction. Since `REPLACE_ODD` is a procedure of type near, the `EXTRN` instruction should be added inside the main code segment, before the `ASSUME` instruction. Pay attention to not add the `EXTRN` definition inside the main procedure! The `EXTRN` instruction simply tells the assembler where it should look for the definition of the `REPLACE_ODD` symbol.
 https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/main.asm#L7-L11
 
 ### The complete `main.asm` file
@@ -242,7 +242,7 @@ https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca
 
 Since both segments (the one in `main.asm` and the one in `proclib.asm`) have the same name `CODE`, they are treated as being the same segment.
 
-In order to make the procedure `REPLACE_ODD` visible to other files in the system, we must specify that it is a public procedure. This specification should be made before the `ASSUME` instruction.
+In order to make the procedure `REPLACE_ODD` visible to other files in the system, we must specify that it is a public procedure, using the `PUBLIC` instruction. This specification should be made before the `ASSUME` instruction.
 https://github.com/tudorcoroian17/ALP/blob/a4d74816376b93eb04fad02b6d08c9641b0ca446/resources/line-code/npssdf/proclib.asm#L1-L5
 
 The implementation of the `REPLACE_ODD` procedure is exactly the same as when we wrote it in the same segment and file (see Tudorial above). As such, the full body of the procedure is presented below.
@@ -279,8 +279,8 @@ https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39e
 It's important to know the order of the parameters sent via the stack. The task specifies that the address of the vector is sent first, then the length, and then the number. Push these values on the stack in the `START` procedure and then call `REPLACE_ODD`.
 https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/main.asm#L18-L25
 
-Even if `REPLACE_ODD` is a procedure defined in another code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `FAR` type procedure, found outside of the current file (`main.asm`). This specification should be made befor the `ASSUME` instruction, in the main file.
-https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/main.asm#L7-L11
+Even if `REPLACE_ODD` is a procedure defined in another code segment, it is implemented in another file. As such, we have to specify to the assembler that `REPLACE_ODD` is a `FAR` type procedure, found outside of the current file (`main.asm`). This is done with the help of the `EXTRN` instruction. Since `REPLACE_ODD` is a procedure of type far, the `EXTRN` instruction should be added outside the main code segment (ideally between the data segment and the code segment). The `EXTRN` instruction simply tells the assembler where it should look for the definition of the `REPLACE_ODD` symbol.
+https://github.com/tudorcoroian17/ALP/blob/a87f7173fb09175dbd994dc55336dcbe12a581be/resources/line-code/fpdsdf/main.asm#L6-L8
 
 ### The complete `main.asm` file
 https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/main.asm#L1-L28
@@ -294,7 +294,7 @@ https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39e
 
 Since the segments have different names (`CODE` and `CODE2`) they are treated as being different segments.
 
-In order to make the procedure `REPLACE_ODD` visible to other files in the system, we must specify that it is a public procedure. This specification should be made before the `ASSUME` instruction.
+In order to make the procedure `REPLACE_ODD` visible to other files in the system, we must specify that it is a public procedure, using the `PUBLIC` instruction. This specification should be made before the `ASSUME` instruction.
 https://github.com/tudorcoroian17/ALP/blob/dc7b58bd1c5a4b9a0616b04c111313696f39edf8/resources/line-code/fpdsdf/proclib.asm#L2-L4
 
 The implementation of the `REPLACE_ODD` procedure is exactly the same as when we wrote it in a different segment, but the same file (see Tudorial above). As such, the full body of the procedure is presented below.
