@@ -1,10 +1,3 @@
-# Hunting Status
-Check the excel sheet below to see your latest bounty.
-
-[ALP Spring 2025 Bounties](https://docs.google.com/spreadsheets/d/1T1Z1FEGvss_Uox3bJ8Ev2OzBXpaDoIsAMq9Du0R0dBU/edit?usp=sharing)
-
-If you don't remember your student code, you can ask againg for it :D
-
 # Tudorials
 You'll find a list of "Tudorials" below, aimed to help you install, setup and use the tools needed for this laboratory.
 
