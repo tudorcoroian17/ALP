@@ -103,6 +103,6 @@ The `TAMS/MASM` VSCode extension is the one that emulates the **TurboDebuger** f
 3. Search for the following extensions and install them:
    - ASM Comment Alligner
    - Binary Viewer 
-   - MASM/TASM
+   - MASM/TASM (please select version 1.1.0 and uncheck the auto-update checkbox)
 
 Congrats! You have succesfully installed the necessary extensions for this laboratory!
