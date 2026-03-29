@@ -2,7 +2,67 @@
 
 Write a program in assembly code to perform the following operations. Store the result of each operation in a variable of appropiate size in memory. The name of the variables should follow the pattern `REZ_X`, where `X` will be replaced with the number of the exercise. Additionally, for each instruction perfomed, check the value of the flags.
 
-Start writing the code in `lw5.asm`. Submit a solution at the end of the laboratory with the exercises you managed to implement.
+Start your implementation from the followin code below. Submit a solution at the end of the laboratory with the exercises you managed to implement.
+
+```
+DATA SEGMENT PARA PUBLIC 'DATA'
+    REZ_1       DB  0
+    REZ_2       DB  0
+    REZ_3       DB  0
+    REZ_4       DW  0
+    REZ_5       DB  0
+    REZ_6       DB  0
+    REZ_7       DB  0
+    REZ_8       DB  0
+    REZ_9       DW  0
+    REZ_10      DB  0
+    REZ_11      DW  0
+    REZ_12      DW  0
+    REZ_13      DD  0
+    REZ_14      DD  0
+    REZ_15      DW  0
+    REZ_16      DD  0
+    REZ_17      DW  0
+    REZ_18      DD  0
+    REZ_19      DW  0
+    REZ_20_Q    DB  0
+    REZ_20_R    DB  0
+    REZ_21_Q    DB  0
+    REZ_21_R    DB  0 
+    REZ_22_Q    DB  0
+    REZ_22_R    DB  0 
+    REZ_23_Q    DB  0
+    REZ_23_R    DB  0  
+    REZ_24_Q    DB  0
+    REZ_24_R    DB  0
+    REZ_25      DW  0
+    REZ_26      DW  0
+    REZ_27      DW  0
+    REZ_28      DW  0
+    REZ_29      DW  0
+    REZ_30      DW  0
+    REZ_31      DW  0
+    REZ_32      DW  0
+DATA ENDS
+
+CODE SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:CODE, DS:DATA
+START PROC FAR
+PUSH DS
+XOR AX, AX
+MOV DS, AX
+PUSH AX
+MOV AX, DATA
+MOV DS, AX
+; your code starts here
+
+; your code ends here
+RET
+START ENDP
+
+CODE ENDS
+END START
+```
 
 Don't forget to initialize the necessary registers with the appropiate values before performing each operation.
 
