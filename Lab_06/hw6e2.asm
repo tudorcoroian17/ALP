@@ -1,24 +1,37 @@
 DATA SEGMENT PARA PUBLIC 'DATA'
-    ORG     02ACH
-    VAR1    DW  4567H
-    VAR2    DD  ?
+    ORG         02ACH
+    VAR1        DW    4567H
+    ADR_VAR1    DD    VAR1
+    VAR2        DD    ?
+    ADR_VAR2    DD    VAR2
 DATA ENDS
 
 DATA2 SEGMENT PARA PUBLIC 'DATA'
-    ORG     0A01H
-    VAR3    DW  ?
-    VAR4    DD  1200AB00H
+    ORG         0A01H
+    VAR3        DW    ?
+    ADR_VAR3    DD    VAR3
+    VAR4        DD    1200AB00H
+    ADR_VAR4    DD    VAR4
 DATA2 ENDS
 
 CODE SEGMENT PARA PUBLIC 'CODE'
-ASSUME CS:CODE, DS:DATA
+ASSUME CS:CODE, DS:DATA, ES:DATA2
 START PROC FAR
+; Initialize DS with adr of DATA
 PUSH DS
 XOR AX, AX
 MOV DS, AX
 PUSH AX
 MOV AX, DATA
 MOV DS, AX
+
+; Initialize ES with adr of DATA2
+PUSH ES
+XOR AX, AX
+MOV ES, AX
+PUSH AX
+MOV AX, DATA2
+MOV ES, AX
 ; your code starts here
 
 ; your code ends here
