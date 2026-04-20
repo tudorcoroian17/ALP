@@ -34,13 +34,12 @@ The **local label list** is optional. Macros that use labels inside them, must d
 A macro library is nothing more than multiple macros defined in the same soure (`.asm`) file. This file is the included in the main one with the `INCLUDE filename.asm` instruction. [See example below]
 https://github.com/tudorcoroian17/ALP/blob/f01af4620e4d4c841b721c610b26361cb12dd586/Lab_08/eg1.asm#L1
 
-Below is the sequence of steps used to assemble and link a macro library to the main file. (`maclib.asm` is the assembly file that contains the macro definitions and `main.asm` is the main file that calls on those macros.)
+Below is the sequence of steps used to assemble and link a macro library to the main file. (`maclib.asm` is the assembly file that contains the macro definitions and `main.asm` is the main file that calls on those macros.) Note that the `maclib.asm` file is not assembled at all. It is just included in the `main.asm` file, directly inside the code.
 
 ```mermaid
 flowchart LR
-    A[maclib.asm] -- tasm --> B[maclib.obj]
     C[main.asm] -- tasm --> D[main.obj]
-    B & D -- tlink --> E[main.exe]
+    D -- tlink --> E[main.exe]
 ```
 ```
 C:\TASM>tasm maclib.asm
