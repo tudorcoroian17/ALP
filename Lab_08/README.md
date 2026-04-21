@@ -42,9 +42,8 @@ flowchart LR
     D -- tlink --> E[main.exe]
 ```
 ```
-C:\TASM>tasm maclib.asm
 C:\TASM>tasm main.asm
-C:\TASM>tlink main.obj maclib.obj
+C:\TASM>tlink main.obj
 C:\TASM>td main.exe
 ```
 
