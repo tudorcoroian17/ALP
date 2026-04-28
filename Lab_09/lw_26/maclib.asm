@@ -1,0 +1,10 @@
+READ_CHAR MACRO
+    MOV AH, 01H
+    INT 21H
+ENDM
+
+PRINT_CHAR MACRO chr
+    MOV DL, chr
+    MOV AH, 02H
+    INT 21H
+ENDM
