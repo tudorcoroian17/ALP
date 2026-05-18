@@ -8,7 +8,7 @@ Given a vector of **unsigned integers** in the range of `0-255` (`VEC`), with at
 ```
 VEC = 10, 11, 15, 29, 8, 31, 100
 KEY = 6
-RES = 60, 66, 90, 174, 186, 600
+RES = 60, 11, 15, 29, 48, 31, 600
 ```
 
 # Keyboard input/Screen output
@@ -21,7 +21,7 @@ What are the numbers of the vector?
 What is the key?
 6
 The resulting vector is:
-60,66,90,174,186,600
+60,11,15,29,48,31,600
 ```
 
 # File input/output
@@ -36,7 +36,7 @@ If you choose to implement your solution using file input and/or output, the for
 The format of the output file (`out.txt`) should be the following (the `RES` vector):
 
 ```
-60,66,90,174,186,600
+60,11,15,29,48,31,600
 ```
 
 

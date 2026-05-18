@@ -6,9 +6,9 @@ Given a vector of **unsigned integers** in the range of `0-65025`, i.e., `0x0000
 
 **Example 1**
 ```
-VEC = 60, 67, 92, 174, 186, 605
+VEC = 63, 67, 92, 174, 186, 605
 KEY = 6
-RES = 0, 1, 2, 0, 0, 5
+RES = 3, 1, 92, 147, 186, 5
 ```
 
 # Keyboard input/Screen output
@@ -17,11 +17,11 @@ If you choose to implement your solution using keyboard input and/or screen outp
 
 ```
 What are the numbers of the vector?
-60,67,92,174,186,605
+63,67,92,174,186,605
 What is the key?
 6
 The resulting vector is:
-0,1,2,0,0,5
+3,1,92,147,186,5
 ```
 
 # File input/output
@@ -29,14 +29,14 @@ The resulting vector is:
 If you choose to implement your solution using file input and/or output, the format of the input file (`in.txt`) is the following (`VEC`, and `KEY`, all on a separate line, in this order):
 
 ```
-60,67,92,174,186,605
+63,67,92,174,186,605
 6
 ```
 
 The format of the output file (`out.txt`) should be the following (the `RES` vector):
 
 ```
-0,1,2,0,0,5
+3,1,92,147,186,5
 ```
 
 
