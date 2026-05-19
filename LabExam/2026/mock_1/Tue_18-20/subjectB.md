@@ -21,7 +21,7 @@ What are the numbers of the vector?
 What is the key?
 6
 The resulting vector is:
-3,1,92,147,186,5
+3,1,92,174,186,5
 ```
 
 # File input/output
