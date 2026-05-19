@@ -8,7 +8,7 @@ Given a vector of **unsigned integers** in the range of `0-65025`, i.e., `0x0000
 ```
 VEC = 63, 67, 92, 174, 186, 605
 KEY = 6
-RES = 3, 1, 92, 147, 186, 5
+RES = 3, 1, 92, 174, 186, 5
 ```
 
 # Keyboard input/Screen output
@@ -36,7 +36,7 @@ If you choose to implement your solution using file input and/or output, the for
 The format of the output file (`out.txt`) should be the following (the `RES` vector):
 
 ```
-3,1,92,147,186,5
+3,1,92,174,186,5
 ```
 
 
